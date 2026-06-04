@@ -1,0 +1,18 @@
+node_modules/
+vendor/
+uploads/
+samples/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.local

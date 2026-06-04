@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WCAG 2.1 AA Checker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">A11Y</div>
+      <div>
+        <h1>WCAG 2.1 AA Checker</h1>
+        <p class="subtitle">Audit web pages, HTML snippets, and PDFs against WCAG 2.1 Level AA</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" aria-selected="true" data-tab="url">URL</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="html">HTML</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="pdf">PDF</button>
+    </div>
+
+    <section class="panel active" id="panel-url">
+      <label for="url-input">Page URL</label>
+      <input id="url-input" type="url" placeholder="https://example.com" autocomplete="off">
+      <p class="hint">Loads the page in a headless Chromium browser and runs axe-core against WCAG 2.0/2.1 A and AA rule sets.</p>
+      <button class="primary" id="scan-url-btn">Scan URL</button>
+    </section>
+
+    <section class="panel" id="panel-html">
+      <label for="html-input">Paste HTML</label>
+      <textarea id="html-input" rows="14" placeholder="<!doctype html>&#10;<html>&#10;  <body>...</body>&#10;</html>"></textarea>
+      <p class="hint">Static markup is audited. Scripts that require navigation or user interaction won't fire.</p>
+      <button class="primary" id="scan-html-btn">Scan HTML</button>
+    </section>
+
+    <section class="panel" id="panel-pdf">
+      <label for="pdf-input">PDF document</label>
+      <div class="drop-zone" id="drop-zone">
+        <input id="pdf-input" type="file" accept="application/pdf">
+        <p>Drop a PDF here, or click to browse (max 50MB)</p>
+        <p class="file-name" id="pdf-name"></p>
+      </div>
+      <p class="hint">Validates against PDF/UA-1 (ISO 14289-1) using veraPDF — the gold-standard open-source PDF accessibility validator. Findings are mapped to the WCAG 2.1 success criteria they impact.</p>
+      <button class="primary" id="scan-pdf-btn" disabled>Scan PDF</button>
+    </section>
+
+    <section class="status hidden" id="status">
+      <div class="spinner" aria-hidden="true"></div>
+      <span id="status-text">Scanning…</span>
+    </section>
+
+    <section class="results hidden" id="results"></section>
+  </main>
+
+  <footer class="footnote">
+    Automated tools catch roughly 30–50% of accessibility issues. Manual keyboard and screen-reader testing is still required for full conformance.
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

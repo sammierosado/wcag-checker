@@ -1,0 +1,32 @@
+{
+  "name": "wcag-checker",
+  "version": "0.1.0",
+  "description": "Local WCAG 2.1 AA accessibility checker for URLs, HTML, and PDFs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "install:verapdf": "node scripts/install-verapdf.js",
+    "postinstall": "playwright install chromium && node scripts/install-verapdf.js"
+  },
+  "keywords": [
+    "wcag",
+    "wcag21",
+    "accessibility",
+    "a11y",
+    "axe-core",
+    "verapdf",
+    "pdf-ua",
+    "audit"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "axe-core": "^4.10.0",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "playwright": "^1.47.0"
+  }
+}
