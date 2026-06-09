@@ -110,7 +110,7 @@ function renderResult(result) {
   const source = result.source?.source || 'scan';
   const body = sorted.length === 0
     ? `<div class="empty-pass">
-         <h3>No automated WCAG 2.1 AA violations detected</h3>
+         <h3>No automated WCAG 2.2 AA violations detected</h3>
          <p>Manual keyboard and screen-reader testing still required for full conformance.</p>
        </div>`
     : sorted.map(renderViolation).join('');

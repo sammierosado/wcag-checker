@@ -1,9 +1,9 @@
 # WCAG Checker
 
-A local web app that audits web pages, HTML snippets, and PDFs against **WCAG 2.1 Level AA**. Built for accessibility consultants and devs who need client-ready reports without sending content to a third-party SaaS.
+A local web app that audits web pages, HTML snippets, and PDFs against **WCAG 2.2 Level AA**. Built for accessibility consultants and devs who need client-ready reports without sending content to a third-party SaaS.
 
 - **Web (URL / HTML)** — powered by [axe-core](https://github.com/dequelabs/axe-core) running in headless Chromium via Playwright.
-- **PDFs** — powered by [veraPDF](https://verapdf.org/), the reference PDF/UA-1 (ISO 14289-1) validator, with each failing rule mapped to the WCAG 2.1 success criteria it impacts.
+- **PDFs** — powered by [veraPDF](https://verapdf.org/), the reference PDF/UA-1 (ISO 14289-1) validator, with each failing rule mapped to the WCAG 2.2 success criteria it impacts.
 - **Local-only** — your URLs, HTML, and documents never leave your machine.
 - **Exports** — self-contained HTML report for clients, plus raw JSON for tooling.
 
@@ -33,13 +33,13 @@ If `java` isn't installed, the install script will skip veraPDF and warn you —
 ## Usage
 
 ### 1. URL scan
-Paste any public URL. The page loads in a headless browser, then axe-core runs every WCAG 2.0/2.1 A and AA rule against the live DOM.
+Paste any public URL. The page loads in a headless browser, then axe-core runs every WCAG 2.0/2.1/2.2 A and AA rule against the live DOM.
 
 ### 2. HTML scan
 Paste an HTML snippet or a full document. Useful for auditing email templates, CMS fragments, or design-system components in isolation.
 
 ### 3. PDF scan
-Drag a PDF in. veraPDF validates it against PDF/UA-1 and the results are mapped to the WCAG 2.1 success criteria your clients' audit reports use (1.3.1, 3.1.1, 4.1.2, etc.).
+Drag a PDF in. veraPDF validates it against PDF/UA-1 and the results are mapped to the WCAG 2.2 success criteria your clients' audit reports use (1.3.1, 3.1.1, 4.1.2, etc.).
 
 ### Reports
 

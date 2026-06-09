@@ -1,7 +1,7 @@
 {
   "name": "wcag-checker",
   "version": "0.1.0",
-  "description": "Local WCAG 2.1 AA accessibility checker for URLs, HTML, and PDFs",
+  "description": "Local WCAG 2.2 AA accessibility checker for URLs, HTML, and PDFs",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,7 @@
   },
   "keywords": [
     "wcag",
-    "wcag21",
+    "wcag22",
     "accessibility",
     "a11y",
     "axe-core",

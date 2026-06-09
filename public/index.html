@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WCAG 2.1 AA Checker</title>
+<title>WCAG 2.2 AA Checker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,8 +12,8 @@
     <div class="brand">
       <div class="logo" aria-hidden="true">A11Y</div>
       <div>
-        <h1>WCAG 2.1 AA Checker</h1>
-        <p class="subtitle">Audit web pages, HTML snippets, and PDFs against WCAG 2.1 Level AA</p>
+        <h1>WCAG 2.2 AA Checker</h1>
+        <p class="subtitle">Audit web pages, HTML snippets, and PDFs against WCAG 2.2 Level AA</p>
       </div>
     </div>
   </header>
@@ -28,7 +28,7 @@
     <section class="panel active" id="panel-url">
       <label for="url-input">Page URL</label>
       <input id="url-input" type="url" placeholder="https://example.com" autocomplete="off">
-      <p class="hint">Loads the page in a headless Chromium browser and runs axe-core against WCAG 2.0/2.1 A and AA rule sets.</p>
+      <p class="hint">Loads the page in a headless Chromium browser and runs axe-core against WCAG 2.0/2.1/2.2 A and AA rule sets.</p>
       <button class="primary" id="scan-url-btn">Scan URL</button>
     </section>
 
@@ -46,7 +46,7 @@
         <p>Drop a PDF here, or click to browse (max 50MB)</p>
         <p class="file-name" id="pdf-name"></p>
       </div>
-      <p class="hint">Validates against PDF/UA-1 (ISO 14289-1) using veraPDF — the gold-standard open-source PDF accessibility validator. Findings are mapped to the WCAG 2.1 success criteria they impact.</p>
+      <p class="hint">Validates against PDF/UA-1 (ISO 14289-1) using veraPDF — the gold-standard open-source PDF accessibility validator. Findings are mapped to the WCAG 2.2 success criteria they impact.</p>
       <button class="primary" id="scan-pdf-btn" disabled>Scan PDF</button>
     </section>
 
