@@ -7,6 +7,9 @@ const { scanPdf } = require('./lib/scanPdf');
 const { renderReport } = require('./lib/report');
 
 const PORT = process.env.PORT || 5173;
+// Local-only by default: bind to loopback so the tool isn't exposed on your
+// LAN. Set HOST=0.0.0.0 explicitly if you intend to reach it from other devices.
+const HOST = process.env.HOST || '127.0.0.1';
 const UPLOAD_DIR = path.join(__dirname, 'uploads');
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR);
 
@@ -69,6 +72,7 @@ app.post('/report', (req, res) => {
   res.send(html);
 });
 
-app.listen(PORT, () => {
-  console.log(`WCAG Checker running at http://localhost:${PORT}`);
+app.listen(PORT, HOST, () => {
+  const shown = HOST === '0.0.0.0' ? 'localhost' : HOST;
+  console.log(`WCAG Checker running at http://${shown}:${PORT}`);
 });

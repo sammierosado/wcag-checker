@@ -19,6 +19,15 @@
     "audit"
   ],
   "license": "MIT",
+  "author": "Sammie Rosado",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammierosado/wcag-checker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sammierosado/wcag-checker/issues"
+  },
+  "homepage": "https://github.com/sammierosado/wcag-checker#readme",
   "engines": {
     "node": ">=18"
   },

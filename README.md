@@ -1,6 +1,14 @@
 # WCAG Checker
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Node](https://img.shields.io/badge/node-%E2%89%A518-brightgreen.svg)](https://nodejs.org)
+[![WCAG 2.2 AA](https://img.shields.io/badge/WCAG-2.2%20AA-blue.svg)](https://www.w3.org/TR/WCAG22/)
+[![axe-core](https://img.shields.io/badge/engine-axe--core-purple.svg)](https://github.com/dequelabs/axe-core)
+[![veraPDF](https://img.shields.io/badge/PDF-veraPDF-orange.svg)](https://verapdf.org/)
+
 A local web app that audits web pages, HTML snippets, and PDFs against **WCAG 2.2 Level AA**. Built for accessibility consultants and devs who need client-ready reports without sending content to a third-party SaaS.
+
+![WCAG Checker screenshot](docs/screenshot.png)
 
 - **Web (URL / HTML)** — powered by [axe-core](https://github.com/dequelabs/axe-core) running in headless Chromium via Playwright.
 - **PDFs** — powered by [veraPDF](https://verapdf.org/), the reference PDF/UA-1 (ISO 14289-1) validator, with each failing rule mapped to the WCAG 2.2 success criteria it impacts.
@@ -10,13 +18,15 @@ A local web app that audits web pages, HTML snippets, and PDFs against **WCAG 2.
 ## Quick start
 
 ```bash
-git clone https://github.com/<your-user>/wcag-checker.git
+git clone https://github.com/sammierosado/wcag-checker.git
 cd wcag-checker
 npm install
 npm start
 ```
 
 Then open <http://localhost:5173>.
+
+The server binds to `127.0.0.1` (localhost-only) by default so it is never exposed on your network. To reach it from another device, start it with `HOST=0.0.0.0 npm start`. Change the port with `PORT=8080 npm start`.
 
 The `postinstall` step downloads Playwright's Chromium and the veraPDF validator (~150MB combined, one-time).
 
@@ -83,6 +93,16 @@ wcag-checker/
 ├── vendor/verapdf/         # installed locally (gitignored)
 └── uploads/                # temp PDF uploads (gitignored, auto-cleaned)
 ```
+
+## Troubleshooting
+
+| Symptom | Fix |
+|---------|-----|
+| **PDF scans fail / "veraPDF returned no output"** | veraPDF needs Java 11+ on your PATH. Run `java -version` to confirm, then re-run `npm run install:verapdf`. |
+| **`browserType.launch: Executable doesn't exist`** | Playwright's Chromium didn't download. Run `npx playwright install chromium`. |
+| **Port 5173 already in use** | Start on another port: `PORT=8080 npm start`. |
+| **`postinstall` failed behind a proxy/firewall** | Re-run `npm run install:verapdf` and `npx playwright install chromium` once you have network access. Web/HTML scans work without veraPDF. |
+| **A URL scan times out** | The page must load within 45s and return HTTP 200. Pages behind a login or heavy JS may not finish; try the HTML tab with the rendered markup instead. |
 
 ## Credits & licenses
 
