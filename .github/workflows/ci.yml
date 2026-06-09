@@ -6,6 +6,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Opt JS actions into the Node 24 runtime ahead of GitHub's forced switch,
+# silencing the "Node.js 20 actions are deprecated" warning.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   smoke:
     name: Smoke test (URL · HTML · PDF)
