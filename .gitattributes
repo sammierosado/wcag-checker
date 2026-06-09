@@ -1,0 +1,12 @@
+# Normalize text files to LF in the repo; tools/CI run on Linux.
+* text=auto eol=lf
+
+# Treat these as binary so line-ending conversion never corrupts them.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.jks binary
+*.zip binary
