@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    name: Smoke test (URL · HTML · PDF)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Java must be available BEFORE `npm ci`, because the package's
+      # postinstall step builds veraPDF (an izpack installer that needs Java).
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install dependencies (downloads Chromium + veraPDF)
+        run: npm ci
+
+      # Ensure Chromium's system libraries are present for headless runs.
+      - name: Install Chromium system deps
+        run: npx playwright install --with-deps chromium
+
+      - name: Smoke test
+        run: npm run smoke

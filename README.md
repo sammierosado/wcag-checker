@@ -1,5 +1,6 @@
 # WCAG Checker
 
+[![CI](https://github.com/sammierosado/wcag-checker/actions/workflows/ci.yml/badge.svg)](https://github.com/sammierosado/wcag-checker/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-brightgreen.svg)](https://nodejs.org)
 [![WCAG 2.2 AA](https://img.shields.io/badge/WCAG-2.2%20AA-blue.svg)](https://www.w3.org/TR/WCAG22/)

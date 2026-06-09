@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "smoke": "node test/smoke.js",
+    "test": "node test/smoke.js",
     "install:verapdf": "node scripts/install-verapdf.js",
     "postinstall": "playwright install chromium && node scripts/install-verapdf.js"
   },
